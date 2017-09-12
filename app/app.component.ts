@@ -1,12 +1,30 @@
-import { component } from '@angular/core';
+import { Component } from '@angular/core';
 
-@component ({
+@Component ({
   selector: 'my-app',
   template: `
-  <h1>My First Angular2 App</h1>
+  <div class="container">
+  <h1>My First Angular 2 App</h1>
+    <h3>One of my favorite bands is: {{ favoriteBand }}</h3>
+    <p>If I had to choose a favorite painter it would be: {{ favoritePainter }}</p>
+    <p>The number of slices of pie I would like is: {{ slicesOfPie }}</p>
+    <h3>One of my favorite albums is: </h3>
+    <p>{{ favoriteAlbum.title }}</p>
+    <p>By {{ favoriteAlbum.artist }}</p>
+    <p>Released in {{ favoriteAlbum.released }}</p>
+    <div class="pie">
+      <p>Apple Pie</p>
+    <div>
+  </div>
   `
 })
 
 export class AppComponent {
-
+  favoriteBand: string = 'Ani DiFranco';
+  favoritePainter: string = 'Van Gogh';
+  slicesOfPie: number = 3;
+  favoriteAlbum: Album = new Album("Disintegration", "The Cure", 1989);
   }
+  export class Album {
+  constructor (public title: string, public artist: string, public released: number) {  }
+}

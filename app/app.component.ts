@@ -5,8 +5,15 @@ import { Component } from '@angular/core';
   template: `
   <div class="container">
     <h1>My First Angular 2 App</h1>
+    <div *ngFor="Let currentTask of tasks">
     <h3 (click)="doStuff(currentTask)" *ngFor="let currentTask of tasks">{{ currentTask.description }}</h3>
+<button (click)="showDetails(currentTask)">Edit</button>
+</div>
+<div *ngIf="selectedTask">
 <h1>Edit Task</h1>
+</div>
+<label>Enter Task Description:</label>
+        <input [(ngModel)]="selectedTask.description">
 <div>
 <label>Enter Task Description:</label>
 <input [(ngModel)]="selectedTask.description">
@@ -14,6 +21,7 @@ import { Component } from '@angular/core';
   <div>
   <label>Enter Task ID:</label>
   <input [(ngModel)]="selectedTask.id">
+  <button (click)="finishedEditing">Done</button>
   </div>
   </div>
   `
@@ -26,12 +34,12 @@ export class AppComponent {
       new Task("Rewatch all the Lord of the Rings movies.", 2),
       new Task("Do the laundry.", 3)
   ];
-  doStuff(clickedTask: Task) {
-    if(clickedTask.done === true) {
-      alert("This task is done!");
-    } else {
-      alert("This task is not completed yet! Get to work!");
-    }
+  selectedTask: Task = this.tasks[0];
+  showDetails(clickedTask: Task) {
+    this.selectedTask = clickedTask;
+  }
+  finishedEditing() {
+   this.selectedTask= null;
   }
 }
 

@@ -3,7 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { PiesListComponent } from './pies-list.component'
 import { AppComponent }   from './app.component';
-import { TaskListComponent} from './task-list.components';
+import { TaskListComponent } from './task-list.components';
+import { EditTaskComponent } from './edit-task.component';
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import { TaskListComponent} from './task-list.components';
   declarations: [ PiesListComponent,
     AppComponent,
     TaskListComponent,
+    EditTaskComponent,
   ],
   bootstrap:    [ AppComponent ]
 })

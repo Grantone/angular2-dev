@@ -6,6 +6,11 @@ import { Component } from '@angular/core';
   <div class="container">
     <h1>My First Angular 2 App</h1>
     <h3 (click)="doStuff(currentTask)" *ngFor="let currentTask of tasks">{{ currentTask.description }}</h3>
+<div>
+<h1>Edit Task</h1>
+<p>Description: {{ selectedTask.description }}</p>
+<p>Task ID: {{ selectedTask.id }}</p>
+</div>
   </div>
   `
 })
